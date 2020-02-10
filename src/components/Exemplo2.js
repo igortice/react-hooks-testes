@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Lista = ({ tarefas, onClick }) => {
   const lista = tarefas.map((t, i) => (
