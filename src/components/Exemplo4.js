@@ -2,10 +2,15 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 export default () => {
-  const clicks = useSelector(state => state.exemplo.um.count);
+  const clicks = useSelector(state => state.exemplo.um.clicks);
+  const tarefas = useSelector(state => state.exemplo.dois.tarefas);
+  const count = useSelector(state => state.exemplo.tres.count);
+
   return (
     <>
       <div>clicks: {clicks}</div>
+      <pre>tarefas: [{tarefas.join(', ')}]</pre>
+      <div>count: {count}</div>
     </>
   );
 };

@@ -1,15 +1,27 @@
-import { SET_COUNT } from '../../constants/exemplo';
+import { SET_COUNT, SET_TAREFAS, SET_CLICKS } from '../../constants/exemplo';
 
 const initialState = {
-  um: { count: 0 }
+  um: { clicks: 0 },
+  dois: { tarefas: [] },
+  tres: { count: 0 }
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    case SET_CLICKS:
+      return {
+        ...state,
+        um: { clicks: payload }
+      };
+    case SET_TAREFAS:
+      return {
+        ...state,
+        dois: { tarefas: payload }
+      };
     case SET_COUNT:
       return {
         ...state,
-        um: { count: payload }
+        tres: { count: payload }
       };
     default:
       return state;

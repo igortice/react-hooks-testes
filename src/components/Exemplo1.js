@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCount } from '../store/actions/exemploAction';
+import { setClicks } from '../store/actions/exemploAction';
 
 const Exemplo1 = () => {
-  const count = useSelector(state => state.exemplo.um.count);
+  const clicks = useSelector(state => state.exemplo.um.clicks);
   const dispatch = useDispatch();
   useEffect(() => {
-    document.title = `Counter: ${count}`;
+    document.title = `Counter: ${clicks}`;
   });
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => dispatch(setCount(count + 1))}>Click me</button>
+      <p>You clicked {clicks} times</p>
+      <button onClick={() => dispatch(setClicks(clicks + 1))}>Click me</button>
     </div>
   );
 };

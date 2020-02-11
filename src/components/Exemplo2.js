@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setTarefas } from '../store/actions/exemploAction';
 
 const Lista = ({ tarefas, onClick }) => {
   const lista = tarefas.map((t, i) => (
@@ -12,11 +14,12 @@ const Lista = ({ tarefas, onClick }) => {
 
 const Exemplo2 = () => {
   const [inputValue, setInputValue] = useState('');
-  const [tarefas, setTarefas] = useState([]);
-
+  // const [tarefas, setTarefas] = useState([]);
+  const tarefas = useSelector(state => state.exemplo.dois.tarefas);
+  const dispatch = useDispatch();
   const handleClickButton = () => {
     if (inputValue) {
-      setTarefas(prevState => [...prevState, inputValue]);
+      dispatch(setTarefas([...tarefas, inputValue]));
       setInputValue('');
     }
   };
@@ -26,7 +29,7 @@ const Exemplo2 = () => {
     var index = array.indexOf(val);
     if (index !== -1) {
       array.splice(index, 1);
-      setTarefas(array);
+      dispatch(setTarefas(array));
     }
   };
 
