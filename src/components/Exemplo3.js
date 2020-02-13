@@ -10,12 +10,14 @@ const Exemplo3 = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div>
       Count: {count}
       <button onClick={() => dispatch(setCount(initialCount))}>Reset</button>
-      <button onClick={() => (count > 0) && dispatch(setCount(count - 1))}>-</button>
+      <button onClick={() => count > 0 && dispatch(setCount(count - 1))}>
+        -
+      </button>
       <button onClick={() => dispatch(setCount(count + 1))}>+</button>
-    </>
+    </div>
   );
 };
 
