@@ -2,17 +2,18 @@ import {
   SET_COUNT,
   SET_TAREFAS,
   SET_CLICKS,
-  SET_REPOS
+  SET_REPOS,
+  LOADING
 } from '../../constants/exemplo';
 
 const initialState = {
   um: { clicks: 0 },
   dois: { tarefas: [] },
   tres: { count: 0 },
-  cinco: { repos: [] }
+  cinco: { repos: [], loading: false }
 };
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, { type, payload, loading }) => {
   switch (type) {
     case SET_CLICKS:
       return {
@@ -33,6 +34,11 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         cinco: { repos: payload }
+      };
+    case LOADING:
+      return {
+        ...state,
+        loading
       };
     default:
       return state;
