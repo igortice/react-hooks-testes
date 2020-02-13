@@ -2,17 +2,11 @@ import {
   SET_COUNT,
   SET_TAREFAS,
   SET_CLICKS,
-  SET_REPOS,
-  LOADING
+  SET_REPOS
 } from '../../constants/exemplo';
 import GitHub from '../../services/GitHub';
 
-const _loading = loading => ({
-  type: LOADING,
-  loading
-});
-
-const _setRepos = payload => ({
+const setRepos = payload => ({
   type: SET_REPOS,
   payload
 });
@@ -33,22 +27,15 @@ export const setClicks = payload => ({
 });
 
 export const getReposGitHub = username => async dispatch => {
-  dispatch(_loading(true));
-
   try {
     const resGitHub = await GitHub.myRepo(username);
-    dispatch(_loading(false));
 
-    dispatch(_setRepos(filterData(resGitHub.data)));
-
-    return resGitHub;
+    dispatch(setRepos(filterData(resGitHub.data)));
   } catch (error) {
     console.log(error);
   }
 };
 
 const filterData = data => {
-  const result = data.map(ele => ({ id: ele.id, nome: ele.name }));
-
-  return result;
+  return data.map(ele => ({ id: ele.id, nome: ele.name }));
 };
