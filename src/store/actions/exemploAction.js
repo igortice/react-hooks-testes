@@ -1,4 +1,9 @@
-import { SET_COUNT, SET_TAREFAS, SET_CLICKS } from '../../constants/exemplo';
+import {
+  SET_COUNT,
+  SET_TAREFAS,
+  SET_CLICKS,
+  SET_REPOS
+} from '../../constants/exemplo';
 
 export const setCount = payload => ({
   type: SET_COUNT,
@@ -12,5 +17,10 @@ export const setTarefas = payload => ({
 
 export const setClicks = payload => ({
   type: SET_CLICKS,
+  payload
+});
+
+export const setRepos = payload => ({
+  type: SET_REPOS,
   payload
 });

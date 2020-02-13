@@ -7,10 +7,10 @@ export default () => {
   const count = useSelector(state => state.exemplo.tres.count);
 
   return (
-    <>
+    <div>
       <div>clicks: {clicks}</div>
       <pre>tarefas: [{tarefas.join(', ')}]</pre>
       <div>count: {count}</div>
-    </>
+    </div>
   );
 };
