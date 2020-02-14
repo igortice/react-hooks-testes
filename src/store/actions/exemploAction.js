@@ -4,7 +4,8 @@ import {
   SET_CLICKS,
   SET_REPOS
 } from '../../constants/exemplo';
-import GitHub from '../../services/GitHub';
+import GitHubService from '../../services/GitHubService';
+import ProjetoModel from '../../models/ProjetoModel';
 
 const setRepos = payload => ({
   type: SET_REPOS,
@@ -28,7 +29,7 @@ export const setClicks = payload => ({
 
 export const getReposGitHub = username => async dispatch => {
   try {
-    const resGitHub = await GitHub.myRepo(username);
+    const resGitHub = await GitHubService.myRepo(username);
 
     dispatch(setRepos(filterData(resGitHub.data)));
   } catch (error) {
@@ -37,5 +38,5 @@ export const getReposGitHub = username => async dispatch => {
 };
 
 const filterData = data => {
-  return data.map(ele => ({ id: ele.id, nome: ele.name }));
+  return data.map(ele => new ProjetoModel(ele.id, ele.name));
 };

@@ -5,7 +5,7 @@ export default () => {
   const clicks = useSelector(state => state.exemplo.um.clicks);
   const tarefas = useSelector(state => state.exemplo.dois.tarefas);
   const count = useSelector(state => state.exemplo.tres.count);
-  const quantidade = useSelector(state => state.exemplo.cinco.repos.length);
+  const quantidade = useSelector(state => state.exemplo.cinco.projetos.length);
 
   return (
     <div>

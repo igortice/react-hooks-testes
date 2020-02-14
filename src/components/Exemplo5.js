@@ -5,14 +5,14 @@ import { getReposGitHub } from '../store/actions/exemploAction';
 import ContentLoader from 'react-content-loader';
 
 export default () => {
-  const repos = useSelector(state => state.exemplo.cinco.repos);
+  const myGitHub = useSelector(state => state.exemplo.cinco);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getReposGitHub('igortice'));
   }, []);
 
   const MyProjectsGitHub = () => {
-    if (repos.length === 0) {
+    if (myGitHub.projetos.length === 0) {
       return (
         <ContentLoader
           speed={2}
@@ -35,7 +35,7 @@ export default () => {
     } else {
       return (
         <ol>
-          {repos.map(ele => (
+          {myGitHub.projetos.map(ele => (
             <li key={ele.id}>{ele.nome}</li>
           ))}
         </ol>

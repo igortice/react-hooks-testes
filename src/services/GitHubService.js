@@ -1,6 +1,6 @@
 import { GITHUB } from '../configs/Api';
 
-export default class GitHub {
+export default class GitHubService {
   static myRepo = async username => {
     const options = {
       method: 'GET',

@@ -4,12 +4,13 @@ import {
   SET_CLICKS,
   SET_REPOS
 } from '../../constants/exemplo';
+import GitHubModel from '../../models/GitHubModel';
 
 const initialState = {
   um: { clicks: 0 },
   dois: { tarefas: [] },
   tres: { count: 0 },
-  cinco: { repos: [], loading: false }
+  cinco: new GitHubModel(1)
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -32,7 +33,7 @@ export default (state = initialState, { type, payload }) => {
     case SET_REPOS:
       return {
         ...state,
-        cinco: { repos: payload }
+        cinco: { projetos: payload }
       };
     default:
       return state;
