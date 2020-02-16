@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { setClicks } from '../store/actions/exemploAction';
 
 const Exemplo1 = () => {
@@ -7,7 +8,7 @@ const Exemplo1 = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     document.title = `Counter: ${clicks}`;
-  });
+  }, [clicks]);
 
   return (
     <div>

@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getReposGitHub } from '../store/actions/exemploAction';
+import { useDispatch, useSelector } from 'react-redux';
+
 import ContentLoader from 'react-content-loader';
+import { getReposGitHub } from '../store/actions/exemploAction';
 
 export default () => {
   const myGitHub = useSelector(state => state.exemplo.cinco);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getReposGitHub('igortice'));
-  }, []);
+  }, [dispatch]);
 
   const MyProjectsGitHub = () => {
     if (myGitHub.projetos.length === 0) {

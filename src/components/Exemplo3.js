@@ -1,5 +1,6 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { setCount } from '../store/actions/exemploAction';
 
 const initialCount = 0;

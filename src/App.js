@@ -1,9 +1,9 @@
-import React from 'react';
 import Exemplo1 from './components/Exemplo1';
 import Exemplo2 from './components/Exemplo2';
 import Exemplo3 from './components/Exemplo3';
 import Exemplo4 from './components/Exemplo4';
 import Exemplo5 from './components/Exemplo5';
+import React from 'react';
 
 const App = () => {
   return (

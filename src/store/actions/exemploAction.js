@@ -1,9 +1,10 @@
 import {
-  SET_COUNT,
-  SET_TAREFAS,
   SET_CLICKS,
-  SET_REPOS
+  SET_COUNT,
+  SET_REPOS,
+  SET_TAREFAS
 } from '../../constants/exemplo';
+
 import GitHubService from '../../services/GitHubService';
 import ProjetoModel from '../../models/ProjetoModel';
 
