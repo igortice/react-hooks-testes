@@ -12,7 +12,7 @@ const App = () => {
       Exemplo 1 - hooks com effects
       <Exemplo1 />
       <hr />
-      Exemplo 2 - hooks com várias functions e redux
+      {/* Exemplo 2 - hooks com várias functions e redux
       <Exemplo2 />
       <hr />
       Exemplo 3 - hooks with redux
@@ -23,7 +23,7 @@ const App = () => {
       <hr />
       Exemplo 5 - hooks redux thunk
       <Exemplo5 />
-      <hr />
+      <hr /> */}
     </>
   );
 };

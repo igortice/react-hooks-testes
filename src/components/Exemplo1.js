@@ -19,21 +19,3 @@ const Exemplo1 = () => {
 };
 
 export default Exemplo1;
-
-// import React, { useState, useEffect } from 'react';
-
-// const Exemplo1 = () => {
-//   const [count, setCount] = useState(0);
-//   useEffect(() => {
-//     document.title = `Counter: ${count}`;
-//   });
-
-//   return (
-//     <div>
-//       <p>You clicked {count} times</p>
-//       <button onClick={() => setCount(count + 1)}>Click me</button>
-//     </div>
-//   );
-// };
-
-// export default Exemplo1;
