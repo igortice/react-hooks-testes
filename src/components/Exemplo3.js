@@ -13,8 +13,16 @@ const Exemplo3 = () => {
   return (
     <div>
       Count: {count}
-      <button onClick={() => dispatch(setCount(initialCount))}>Reset</button>
-      <button onClick={() => count > 0 && dispatch(setCount(count - 1))}>
+      <button
+        onClick={() => dispatch({ type: 'setCount', payload: initialCount })}
+      >
+        Reset
+      </button>
+      <button
+        onClick={() =>
+          count > 0 && dispatch({ type: 'setCount', payload: count - 1 })
+        }
+      >
         -
       </button>
       <button onClick={() => dispatch(setCount(count + 1))}>+</button>

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setTarefas } from '../store/actions/exemploAction';
-
 const Lista = ({ tarefas, onClick }) => {
   const lista = tarefas.map((t, i) => (
     <li key={i}>
@@ -20,7 +18,7 @@ const Exemplo2 = () => {
   const dispatch = useDispatch();
   const handleClickButton = () => {
     if (inputValue) {
-      dispatch(setTarefas([...tarefas, inputValue]));
+      dispatch({ type: 'setTarefas', payload: [...tarefas, inputValue] });
       setInputValue('');
     }
   };
@@ -30,7 +28,7 @@ const Exemplo2 = () => {
     var index = array.indexOf(val);
     if (index !== -1) {
       array.splice(index, 1);
-      dispatch(setTarefas(array));
+      dispatch({ type: 'setTarefas', payload: array });
     }
   };
 

@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
 
 const store = configureStore();
+
 const AppRedux = () => (
   <Provider store={store}>
     <App />
