@@ -1,5 +1,10 @@
-import { put, takeLatest, call } from 'redux-saga/effects';
-import { SET_CLICKS, SET_TAREFAS, SET_COUNT, SET_REPOS } from '../../constants/exemplo';
+import { put, takeLatest, call, all, takeEvery } from 'redux-saga/effects';
+import {
+  SET_CLICKS,
+  SET_TAREFAS,
+  SET_COUNT,
+  SET_REPOS
+} from '../../constants/exemplo';
 import GitHubService from '../../services/GitHubService';
 import ProjetoModel from '../../models/ProjetoModel';
 
@@ -30,9 +35,9 @@ function* setCount({ payload }) {
 function* fetchGitHub({ username }) {
   try {
     const response = yield call(GitHubService.myRepo, username);
-    
+
     const payload = filterData(response.data);
-    
+
     yield put({ type: SET_REPOS, payload });
   } catch (e) {
     yield put({ type: 'SET_COUNT_FAILED', message: e.message });
@@ -44,10 +49,12 @@ const filterData = data => {
 };
 
 function* exemploSaga() {
-  yield takeLatest('setClick', setClick);
-  yield takeLatest('setTarefas', setTarefas);
-  yield takeLatest('setCount', setCount);
-  yield takeLatest('FETCH_GITHUB', fetchGitHub);
+  yield all([
+    takeLatest('setClick', setClick),
+    takeLatest('setTarefas', setTarefas),
+    takeLatest('setCount', setCount),
+    takeEvery('FETCH_GITHUB', fetchGitHub)
+  ]);
 }
 
 export default exemploSaga;
