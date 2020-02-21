@@ -7,12 +7,12 @@ const Exemplo1 = () => {
   useEffect(() => {
     document.title = `Counter: ${clicks}`;
   }, [clicks]);
-  
+
   return (
     <div>
       <p>You clicked {clicks} times</p>
       <button
-        onClick={() => dispatch({ type: 'setClick', payload: (clicks + 1) })}
+        onClick={() => dispatch({ type: 'setClick', payload: clicks + 1 })}
       >
         Click me
       </button>
