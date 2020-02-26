@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Creators } from '../store/ducks/exemploDuck';
 
 const Lista = ({ tarefas, onClick }) => {
   const lista = tarefas.map((t, i) => (
@@ -18,7 +19,7 @@ const Exemplo2 = () => {
 
   const handleClickButton = () => {
     if (inputValue) {
-      dispatch({ type: 'setTarefas', payload: [...tarefas, inputValue] });
+      dispatch(Creators.fetchTarefas([...tarefas, inputValue]));
       setInputValue('');
     }
   };
@@ -28,7 +29,7 @@ const Exemplo2 = () => {
     var index = array.indexOf(val);
     if (index !== -1) {
       array.splice(index, 1);
-      dispatch({ type: 'setTarefas', payload: array });
+      dispatch(Creators.fetchTarefas(array));
     }
   };
 

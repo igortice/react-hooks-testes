@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Creators } from '../store/ducks/exemploDuck';
 
 const Exemplo1 = () => {
   const clicks = useSelector(state => state.exemplo.um.clicks);
@@ -11,9 +12,7 @@ const Exemplo1 = () => {
   return (
     <div>
       <p>You clicked {clicks} times</p>
-      <button
-        onClick={() => dispatch({ type: 'setClick', payload: clicks + 1 })}
-      >
+      <button onClick={() => dispatch(Creators.fetchClicks(clicks + 1))}>
         Click me
       </button>
     </div>

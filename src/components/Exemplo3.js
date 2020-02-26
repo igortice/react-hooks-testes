@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import React from 'react';
+import { Creators } from '../store/ducks/exemploDuck';
 
 const initialCount = 0;
 
@@ -11,21 +12,15 @@ const Exemplo3 = () => {
   return (
     <div>
       Count: {count}
-      <button
-        onClick={() => dispatch({ type: 'setCount', payload: initialCount })}
-      >
+      <button onClick={() => dispatch(Creators.fetchCounts(initialCount))}>
         Reset
       </button>
       <button
-        onClick={() =>
-          count > 0 && dispatch({ type: 'setCount', payload: count - 1 })
-        }
+        onClick={() => count > 0 && dispatch(Creators.fetchCounts(count - 1))}
       >
         -
       </button>
-      <button
-        onClick={() => dispatch({ type: 'setCount', payload: count + 1 })}
-      >
+      <button onClick={() => dispatch(Creators.fetchCounts(count + 1))}>
         +
       </button>
     </div>

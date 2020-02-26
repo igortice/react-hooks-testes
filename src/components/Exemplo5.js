@@ -3,12 +3,13 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ContentLoader from 'react-content-loader';
+import { Creators } from '../store/ducks/exemploDuck';
 
 export default () => {
   const myGitHub = useSelector(state => state.exemplo.cinco);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: 'FETCH_GITHUB', username: 'igortice' });
+    dispatch(Creators.fetchRepos('igortice')).then(res => console.log(res.data));
   }, [dispatch]);
 
   const MyProjectsGitHub = () => {
